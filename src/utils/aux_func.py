@@ -871,11 +871,34 @@ def partial_res(result, data, target_name):
 ######################################################
 
 # Função para cálculo do KS
-def ks_stat(y, y_pred):
-    return ks_2samp(y_pred[y==1], y_pred[y!=1]).statistic
+from scipy.stats import ks_2samp
+import numpy as np
+
+def ks_stat(y_true, y_score):
+    """
+    Calcula o KS estatístico usando a probabilidade da classe positiva.
+    Compatível com predict_proba.
+    """
+
+    y_true = np.asarray(y_true)
+
+    # Se vier matriz (n, 2), pega prob da classe positiva
+    if y_score.ndim == 2:
+        y_score = y_score[:, 1]
+
+    # Scores dos maus (evento = 1) e bons (evento = 0)
+    scores_event = y_score[y_true == 1]
+    scores_nonevent = y_score[y_true == 0]
+
+    # Proteção contra folds degenerados
+    if len(scores_event) == 0 or len(scores_nonevent) == 0:
+        return 0.0
+
+    return ks_2samp(scores_event, scores_nonevent).statistic
+
 
 # Função para cálculo do desempenho de modelos
-def calcula_desempenho(modelo, x_train, y_train, x_test, y_test, thr=0.5):
+def eval_model(modelo, x_train, y_train, x_test, y_test, thr=0.5):
     # Probabilidades preditas
     ypred_proba_train = modelo.predict_proba(x_train)[:, 1]
     ypred_proba_test  = modelo.predict_proba(x_test)[:, 1]

@@ -22,7 +22,6 @@ __pycache__/
 # Arquivos grandes comuns
 *.csv
 *.zip
-*.parquet
 *.feather
 *.h5
 
