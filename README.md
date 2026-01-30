@@ -91,12 +91,30 @@ A pasta `src/` contém a implementação modular utilizada nos notebooks:
 - **`utils/`**  
   Funções auxiliares reutilizáveis ao longo do projeto (pré-processamento, visualizações e helpers).
 
-
-
-
 ## ▶️ Como Reproduzir as Análises
 
-1. Criar o ambiente virtual
+As etapas abaixo descrevem como reproduzir integralmente as análises deste projeto em um ambiente local.
+
+### 1. Clonar o repositório
+Clone o repositório para sua máquina local:
+
+```bash
+git clone https://github.com/jooarantes/credit-default-prediction.git
+cd credit-default-prediction
+```
+### 2. Criar e Ativar o ambiente virtual
+```bash
+conda env create -f environment.yml
+conda activate credit-default-prediction
+```
+### 3. Executar os notebooks
+Os notebooks **devem ser executados sequencialmente**, respeitando a ordem abaixo, pois cada etapa gera artefatos utilizados nas etapas seguintes:
+- `01_eda.ipynb`
+- `02_model_interpretaveis.ipynb`
+- `03_model_performance_gbm.ipynb`
+- `04_faixa_de_risco_e_decisao.ipynb`
+
+Durante a execução, são gerados dados processados, métricas e artefatos intermediários utilizados nas análises finais.
 
 ## 📖 Contexto do Problema de Negócio
 
