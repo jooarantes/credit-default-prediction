@@ -5,6 +5,16 @@ Este projeto tem como objetivo desenvolver, avaliar e comparar modelos de classi
 
 O trabalho vai além da comparação tradicional de métricas estatísticas, explorando o impacto direto das decisões de corte sobre inadimplência, aprovação de crédito e retorno esperado.
 
+Em problemas de crédito, o desafio não se limita à previsão de inadimplência, mas à tomada de decisão sob risco.
+
+A aplicação direta de probabilidades estimadas sem uma política clara de decisão pode levar a:
+
+- Perda de retorno potencial;
+- Exposição excessiva ao risco;
+- Políticas instáveis ao longo do tempo.
+
+Este projeto aborda esse desafio integrando modelagem preditiva e decisão econômica.
+
 
 ## 📸 Destaques Visuais
 
@@ -118,15 +128,7 @@ Durante a execução, são gerados dados processados, métricas e artefatos inte
 
 ## 📖 Contexto do Problema de Negócio
 
-Em problemas de crédito, o desafio não se limita à previsão de inadimplência, mas à tomada de decisão sob risco.
-
-A aplicação direta de probabilidades estimadas sem uma política clara de decisão pode levar a:
-
-- Perda de retorno potencial;
-- Exposição excessiva ao risco;
-- Políticas instáveis ao longo do tempo.
-
-Este projeto aborda esse desafio integrando modelagem preditiva e decisão econômica.
+Uma fintech de crédito iniciou sua operação de concessão de empréstimo pessoal e acompanhou a performance de pagamento dos seus clientes durante 1 ano. O grande problema foi a alta taxa de inadimplência observada, cerca de 30%. A partir disso, um estudo foi conduzido para identificar os fatores de risco que estão mais associados à inadimplência de forma a conseguir aprovar mais contratos com a menor taxa de inadimplência possível.
 ## ⚙️ Metodologia
 
 A metodologia segue um fluxo analítico estruturado:
@@ -159,7 +161,8 @@ Utilizadas principalmente para **diagnóstico e comparação técnica.**
 A decisão final **não é baseada exclusivamente em métricas estatísticas.**
 ## 📊 Principais Resultados
 
-- O ranking econômico preliminar foi: **Regressão Logística > LGBM > XGBM**
+- O ranking econômico preliminar foi: **Regressão Logística > LGBM > XGBM**;
+- O modelo de regressão logística apresentou um **ganho percentual de 39%** em relação ao baseline econômico (approve all transactions policy);
 - As distribuições de PD apresentam concentração elevada em faixas entre 8 a 15%;
 - O threshold ótimo - que retorna o maior ROE - foi de 0.08. Porém, resultou em uma política **extremamente agressiva** para a base, aprovando apenas 2 clientes;
 - **Um threshold empiríco de 0.10 foi adotado** (com base na observação visual do gráfico ROE vs Threshold) como tentativa de **flexibilização da política de risco**;
@@ -168,7 +171,7 @@ A decisão final **não é baseada exclusivamente em métricas estatísticas.**
 
 - O modelo WOE-Based criado não prosseguiu para as análises econômicas por haver a necessidade de descartar duas variáveis que são impressindíveis para o contexto do negócio por não apresentarem uma relação monotônica entre as bins e o WOE. Esse modelo foi mantido apenas por caráter de aprendizado e exploratório, não sendo considerado nas decisões futuras deste projeto;
 - A alocação de capital foi definida a partir de uma aproximação do valor médio de empréstimo multiplicado pelo fator de capital;
-- Sobre a política multi-faixa, ela não pode ser estudada devido a natureza dos clientes da base fornecida para as análises em combinação com a forma como as PDs foram organizadas por faixas.
+- Sobre a política de decisão final, é necessário ponderar a flexibilidade e alinhar essa decisão com a área de negócios. Segundo o modelo, muitos clientes bons estão sendo descartados (456), isso faz com que haja um aumento na fricção interna e gere um possível churn de clientes bons. Uma boa solução para isso é adicionar novas features para tentar capturar melhor esses bons pagadores;
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -185,7 +188,7 @@ A decisão final **não é baseada exclusivamente em métricas estatísticas.**
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joao-arantes-ds/)
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://jooarantes.github.io/)
 
 ## 🔗 Conteúdos Relacionados
 
