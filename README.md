@@ -1,20 +1,12 @@
 
 # Projeto: Modelagem de Risco de Inadimplência e Decisão de Política de Risco (PD-based)
+Em problemas de crédito, o desafio não se limita à previsão de inadimplência, mas à tomada de decisão sob risco.
+
+A aplicação direta de probabilidades estimadas sem uma política clara de decisão pode levar a: perda de retorno potencial, exposição excessiva ao risco e políticas instáveis ao longo do tempo.
 
 Este projeto tem como objetivo desenvolver, avaliar e comparar modelos de classificação binária aplicados a um problema de **risco de crédito**, com foco especial na **definição do threshold de decisão** orientado por métricas econômicas e de negócio.
 
 O trabalho vai além da comparação tradicional de métricas estatísticas, explorando o impacto direto das decisões de corte sobre inadimplência, aprovação de crédito e retorno esperado.
-
-Em problemas de crédito, o desafio não se limita à previsão de inadimplência, mas à tomada de decisão sob risco.
-
-A aplicação direta de probabilidades estimadas sem uma política clara de decisão pode levar a:
-
-- Perda de retorno potencial;
-- Exposição excessiva ao risco;
-- Políticas instáveis ao longo do tempo.
-
-Este projeto aborda esse desafio integrando modelagem preditiva e decisão econômica.
-
 
 ## 📸 Destaques Visuais
 
